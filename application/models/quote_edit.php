@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -15,14 +17,12 @@ and open the template in the editor.
             <label for="id">
                 ID#
             </label>
+            <input type="text" id="id" name="id"></input>
             {fid}
             {fwho}
             {fmug}
             {fwhat}
-            <input type="text" id="id" name="id">
-                
-            </input>
-            ...
+            {fsubmit}
         </form>
         </div>
     </body>

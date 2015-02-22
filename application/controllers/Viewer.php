@@ -21,7 +21,7 @@ class Viewer extends Application {
     function index()
     {
 	$this->data['pagebody'] = 'homepage';    // this is the view we want shown
-	$this->data['authors'] = $this->quotes->all();
+	$this->data['authors'] = $this->Quotes->all();
 	$this->render();
     }
 
@@ -29,7 +29,7 @@ class Viewer extends Application {
     function quote($id)
     {
 	$this->data['pagebody'] = 'justone';    // this is the view we want shown
-	$this->data = array_merge($this->data, (array) $this->quotes->get($id));
+	$this->data = array_merge($this->data, (array) $this->Quotes->get($id));
     
     $this->caboose->needed('jrating', 'hollywood');
     $this->data['average'] = ($this->data['vote_count'] > 0)? ($this->data['vote_total']/$this->data['vote_count']) : 0;
@@ -49,7 +49,7 @@ class Viewer extends Application {
         if($record != null) {
             $record->vote_total += $rate;
             $record->vote_count++;
-            $this->quotes->update($record);
+            $this->Quotes->update($record);
         }
         $response = 'Thanks for voting!';
     }

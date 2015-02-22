@@ -24,8 +24,8 @@ class Welcome extends Application {
     $this->data['pagebody'] = 'justone';    // this is the view we want shown
     
     //randomize the quote displays
-    $choice = rand(1,$this->quotes->size());
-	$this->data = array_merge($this->data, (array) $this->quotes->get($choice));
+    $choice = rand(1,$this->Quotes->size());
+	$this->data = array_merge($this->data, (array) $this->Quotes->get($choice));
     
     
     

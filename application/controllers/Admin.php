@@ -11,7 +11,7 @@ class Admin extends Application {
     function index()
     {
         $this->data['title'] = 'Quotations Maintenance';
-        $this->data['quotes'] = $this->quotes->all();
+        $this->data['quotes'] = $this->Quotes->all();
         $this->data['pagebody'] = 'admin_list';    // this is the view we want shown
         $this->render();
     }
@@ -19,7 +19,7 @@ class Admin extends Application {
     //add a new quotation
     function add()
     {
-        $quote = $this->quotes->create();
+        $quote = $this->Quotes->create();
         $this->present($quote);
     }
 
@@ -47,7 +47,7 @@ class Admin extends Application {
     function confirm()
     {
         //pull information from form
-        $record = $this->quotes->create();
+        $record = $this->Quotes->create();
         $record->id = $this->input->post('id');
         $record->who = $this->input->post('who');
         $record->mug = $this->input->post('mug');
@@ -66,9 +66,9 @@ class Admin extends Application {
         
         //save entry
         if (empty($record->id)) 
-            $this->quotes->add($record);
+            $this->Quotes->add($record);
         else
-            $this->quotes->update($record);
+            $this->Quotes->update($record);
         redirect('/admin');
     }
 }

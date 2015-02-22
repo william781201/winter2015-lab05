@@ -18,5 +18,4 @@ class Quotes extends MY_Model {
 	$key = $this->highest();
 	return $this->get($key);
     }
-    
 }
